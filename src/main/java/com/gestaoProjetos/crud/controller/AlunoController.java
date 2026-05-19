@@ -1,0 +1,44 @@
+package com.gestaoProjetos.crud.controller;
+
+import com.gestaoProjetos.crud.entities.Aluno;
+import com.gestaoProjetos.crud.service.AlunoService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/Aluno")
+public class AlunoController {
+
+    //pra executar, tem que ter o service:
+    private AlunoService alunoService;
+
+    public AlunoController(AlunoService alunoService) {
+        this.alunoService = alunoService;
+    }
+
+    //tera todas as operações que tem no service:
+
+    //expondo as operações para criar endpoints ao serviço web
+
+    @PostMapping
+    public List<Aluno> create(@RequestBody Aluno aluno) {
+        return alunoService.create(aluno);
+    }
+
+    @GetMapping
+    public List<Aluno> listAll() {
+        return alunoService.listAll();
+    }
+
+    @PutMapping
+    public List<Aluno> save(@RequestBody Aluno aluno) {
+        return alunoService.save(aluno);
+    }
+
+    @DeleteMapping("{id}")
+    public List<Aluno> delete(@PathVariable Long id) {
+        return alunoService.delete(id);
+    }
+
+}

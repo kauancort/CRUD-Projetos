@@ -1,4 +1,4 @@
-package com.gestaoProjetos.crud.model;
+package com.gestaoProjetos.crud.entities;
 import jakarta.persistence.*;
 
 @Entity
@@ -18,7 +18,7 @@ public class Aluno_Projeto {
     private Projeto projeto;
 
     public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+
 
     public String getFuncao() { return funcao; }
     public void setFuncao(String funcao) { this.funcao = funcao; }

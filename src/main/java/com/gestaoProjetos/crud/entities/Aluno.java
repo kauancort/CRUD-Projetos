@@ -1,4 +1,4 @@
-package com.gestaoProjetos.crud.model;
+package com.gestaoProjetos.crud.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,7 +27,6 @@ public class Aluno {
     public void  setEmail(String email) { this.email = email; }
 
     public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
 
     public Aluno() {  }
 

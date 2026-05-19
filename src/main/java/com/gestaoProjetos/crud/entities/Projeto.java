@@ -1,4 +1,4 @@
-package com.gestaoProjetos.crud.model;
+package com.gestaoProjetos.crud.entities;
 
 import jakarta.persistence.*;
 
@@ -19,7 +19,6 @@ public class Projeto {
         this.descricao = descricao;
     }
 
-    public void setId(Long id) { this.id = id; }
     public Long getId() { return id; }
 
     public String getNome() { return nome; }

@@ -1,4 +1,4 @@
-package com.gestaoProjetos.crud.model;
+package com.gestaoProjetos.crud.entities;
 
 import jakarta.persistence.*;
 
@@ -11,6 +11,7 @@ public class Todo {
     private String titulo;
     private String descricao;
     private String status = "pendente";
+    private String prioridade;
 
     @ManyToOne
     @JoinColumn(name = "id_aluno")
@@ -22,13 +23,14 @@ public class Todo {
 
     public Todo() {  }
 
-    public Todo(Long id, String titulo, String descricao, String status, Aluno aluno, Projeto projeto) {
+    public Todo(Long id, String titulo, String descricao, String status, Aluno aluno, Projeto projeto, String prioridade) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.status = status;
         this.aluno = aluno;
         this.projeto = projeto;
+        this.prioridade = prioridade;
     }
 
     public String getTitulo() { return titulo; }
@@ -46,7 +48,9 @@ public class Todo {
     public Projeto getProjeto() { return projeto; }
     public void setProjeto(Projeto projeto) { this.projeto = projeto; }
 
+    public String getPrioridade() { return prioridade; }
+    public void setPrioridade(String prioridade) { this.prioridade = prioridade; }
+
     public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
 
 }
