@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Aluno")
+@RequestMapping("/alunos") //padrao rest usar plural e minusculo
 public class AlunoController {
 
     //pra executar, tem que ter o service:
@@ -31,17 +31,17 @@ public class AlunoController {
         return alunoService.listAll();
     }
 
-    @GetMapping
-    public Aluno searchById(Long id) {
+    @GetMapping("/{id}") //tem dois get, ent precisa mudar a rota para nao dar conflito
+    public Aluno searchById(@PathVariable Long id) {
         return alunoService.searchById(id);
     }
 
-    @PutMapping("{id}")
-    public List<Aluno> update(@PathVariable Long id, Aluno aluno) {
+    @PutMapping("/{id}")
+    public List<Aluno> update(@PathVariable Long id, @RequestBody Aluno aluno) {
         return alunoService.update(id, aluno);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public List<Aluno> delete(@PathVariable Long id) {
         return alunoService.delete(id);
     }

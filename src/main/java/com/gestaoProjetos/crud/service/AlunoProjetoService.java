@@ -27,11 +27,12 @@ public class AlunoProjetoService {
                 .orElseThrow(() -> new RuntimeException("não encontrado"));
     }
 
-    public Aluno_Projeto update(Long id, Aluno_Projeto ap) {
+    public List<Aluno_Projeto> update(Long id, Aluno_Projeto ap) {
         Aluno_Projeto att = searchById(id);
         att.setAluno(ap.getAluno());
         att.setProjeto(ap.getProjeto());
-        return alunoProjetoRepo.save(att);
+        alunoProjetoRepo.save(att);
+        return listAll();
     }
 
     public void delete(Long id) {
