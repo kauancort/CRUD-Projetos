@@ -14,11 +14,10 @@ public class AlunoService {
     private AlunoRepository alunoRepository;
 
     public List<Aluno> create(Aluno aluno) {
-
         alunoRepository.save(aluno);
         return listAll();
-
     }
+
     public List<Aluno> listAll() {
         return alunoRepository.findAll();
     }
@@ -26,12 +25,6 @@ public class AlunoService {
     public Aluno searchById(Long id) {
         return alunoRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("Aluno nao encontrado"));
-
-    }
-
-    public List<Aluno> save(Aluno aluno) {
-        alunoRepository.save(aluno);
-        return listAll();
     }
 
     public List<Aluno> update(Long id, Aluno aluno) {
@@ -48,3 +41,4 @@ public class AlunoService {
         return listAll();
     }
 }
+

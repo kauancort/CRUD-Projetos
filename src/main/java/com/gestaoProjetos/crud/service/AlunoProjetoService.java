@@ -13,27 +13,28 @@ public class AlunoProjetoService {
     @Autowired
     AlunoProjetoRepository alunoProjetoRepo;
 
-    public List<Aluno_Projeto> listarTodos() {
+    public List<Aluno_Projeto> create(Aluno_Projeto al) {
+        alunoProjetoRepo.save(al);
+        return listAll();
+    }
+
+    public List<Aluno_Projeto> listAll() {
         return alunoProjetoRepo.findAll();
     }
 
-    public Aluno_Projeto buscarPorId(Long id) {
+    public Aluno_Projeto searchById(Long id) {
         return alunoProjetoRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("não encontrado"));
     }
 
-    public Aluno_Projeto salvar(Aluno_Projeto alunoProjeto) {
-        return alunoProjetoRepo.save(alunoProjeto);
-    }
-
-    public Aluno_Projeto atualizar(Long id, Aluno_Projeto ap) {
-        Aluno_Projeto att = buscarPorId(id);
+    public Aluno_Projeto update(Long id, Aluno_Projeto ap) {
+        Aluno_Projeto att = searchById(id);
         att.setAluno(ap.getAluno());
         att.setProjeto(ap.getProjeto());
         return alunoProjetoRepo.save(att);
     }
 
-    public void deletar(Long id) {
+    public void delete(Long id) {
         alunoProjetoRepo.deleteById(id);
     }
 }

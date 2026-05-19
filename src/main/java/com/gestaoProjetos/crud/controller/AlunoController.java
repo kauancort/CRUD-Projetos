@@ -31,9 +31,14 @@ public class AlunoController {
         return alunoService.listAll();
     }
 
-    @PutMapping
-    public List<Aluno> save(@RequestBody Aluno aluno) {
-        return alunoService.save(aluno);
+    @GetMapping
+    public Aluno searchById(Long id) {
+        return alunoService.searchById(id);
+    }
+
+    @PutMapping("{id}")
+    public List<Aluno> update(@PathVariable Long id, Aluno aluno) {
+        return alunoService.update(id, aluno);
     }
 
     @DeleteMapping("{id}")
