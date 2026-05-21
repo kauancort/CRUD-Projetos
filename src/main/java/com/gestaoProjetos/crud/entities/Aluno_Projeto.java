@@ -17,8 +17,14 @@ public class Aluno_Projeto {
     @JoinColumn(name = "projeto_id")
     private Projeto projeto;
 
-    public Long getId() { return id; }
+    public Aluno_Projeto(Long id, Aluno aluno, Projeto projeto, String funcao) {
+        this.id = id;
+        this.aluno = aluno;
+        this.projeto = projeto;
+        this.funcao = funcao;
+    }
 
+    public Long getId() { return id; }
 
     public String getFuncao() { return funcao; }
     public void setFuncao(String funcao) { this.funcao = funcao; }
@@ -31,10 +37,4 @@ public class Aluno_Projeto {
 
     public Aluno_Projeto() {  }
 
-    public Aluno_Projeto(Long id, Aluno aluno, Projeto projeto, String funcao) {
-        this.id = id;
-        this.aluno = aluno;
-        this.projeto = projeto;
-        this.funcao = funcao;
-    }
 }

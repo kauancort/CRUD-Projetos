@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/aluno-projetos")
 public class AlunoProjetoController {
 
     AlunoProjetoService aps;
